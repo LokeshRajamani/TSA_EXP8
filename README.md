@@ -25,6 +25,7 @@ To implement Moving Average Model and Exponential smoothing Using Python.
 DEVELOPED BY: LOKESH R
 REG NO: 212222240055
 ```
+
 ```
 import numpy as np
 import pandas as pd
@@ -33,8 +34,6 @@ from statsmodels.tsa.stattools import adfuller
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 from statsmodels.tsa.ar_model import AutoReg
 from sklearn.metrics import mean_squared_error
-```
-```
 data = pd.read_csv("/content/airline.csv")
 print("Shape of the dataset:", data.shape)
 print("First 50 rows of the dataset:")
@@ -44,8 +43,6 @@ plt.title('First 50 values of the "International" column')
 plt.xlabel('Index')
 plt.ylabel('International Passengers')
 plt.show()
-```
-```
 rolling_mean_5 = data['International '].rolling(window=5).mean()
 print("First 10 values of the rolling mean with window size 5:")
 print(rolling_mean_5.head(10))
@@ -57,15 +54,12 @@ plt.xlabel('Index')
 plt.ylabel('International Passengers')
 plt.legend()
 plt.show()
-```
-```
 lag_order = 13
 model = AutoReg(data['International '], lags=lag_order)
 model_fit = model.fit()
 plot_acf(data['International '])
 plt.title('Autocorrelation Function (ACF)')
 plt.show()
-
 plot_pacf(data['International '])
 plt.title('Partial Autocorrelation Function (PACF)')
 plt.show()
